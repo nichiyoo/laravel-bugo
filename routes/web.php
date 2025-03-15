@@ -10,13 +10,24 @@ Route::get('/about', fn() => view('about'))->name('about');
 
 Route::get('/start', function () {
   $articles = Article::all();
-  return view('start', ['articles' => $articles]);
+
+  return view('start', [
+    'articles' => $articles
+  ]);
 })->name('start');
 
 Route::get('/start/{slug}', function ($slug) {
   $article = Article::where('slug', $slug)->first();
   if (!$article) abort(404);
-  return view('article', ['article' => $article]);
+
+  $previous = Article::where('id', '<', $article->id)->orderBy('id', 'desc')->first();
+  $next = Article::where('id', '>', $article->id)->orderBy('id', 'asc')->first();
+
+  return view('article', [
+    'article' => $article,
+    'previous' => $previous,
+    'next' => $next
+  ]);
 })->name('article');
 
 Route::get('/dashboard', function () {

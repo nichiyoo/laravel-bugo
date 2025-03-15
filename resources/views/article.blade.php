@@ -36,6 +36,30 @@
             </div>
           </div>
         </div>
+
+        <div class="flex items-center justify-between gap-6">
+          <div>
+            @if ($previous)
+              <a href="{{ $previous->slug }}">
+                <x-button>
+                  <i data-lucide="arrow-left" class="size-5"></i>
+                  <span>{{ $previous->title }}</span>
+                </x-button>
+              </a>
+            @endif
+          </div>
+
+          <div>
+            @if ($next)
+              <a href="{{ $next->slug }}">
+                <x-button>
+                  <span>{{ $next->title }}</span>
+                  <i data-lucide="arrow-right" class="size-5"></i>
+                </x-button>
+              </a>
+            @endif
+          </div>
+        </div>
       </div>
     </main>
 
