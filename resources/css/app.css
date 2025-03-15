@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Poppins', sans-serif;
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 6px 2px #7B212F;
+  }
+
+  .box-shadow {
+    box-shadow: 0 6px 2px #7B212F;
+  }
+
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 40px solid #bcfdf7;
+  }
+
+  .bg-pattern {
+    @apply bg-background;
+    background-image: url('../../public/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+}
