@@ -17,8 +17,8 @@
       </div>
     </div>
 
-    <div class="container grid gap-10 max-w-7xl">
-      <main>
+    <main class="container grid gap-10 max-w-7xl">
+      <div>
         <div class="flex flex-col items-center gap-6 text-center lg:col-span-2">
           <h1 class="text-6xl font-bold text-shadow">Buddy to Your Goals!</h1>
           <span class="text-xl">Your Partner in Achieving Financial Goals</span>
@@ -32,8 +32,8 @@
             accessible and practical for everyone.
           </p>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
 
     <div class="absolute bottom-0 w-full min-w-ornament text-zinc-900">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

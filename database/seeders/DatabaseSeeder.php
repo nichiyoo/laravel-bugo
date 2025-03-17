@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     User::factory()->create([
       'name' => 'Administrator',
       'email' => 'admin@example.com',
+      'role' => 'admin',
     ]);
 
     $articles = [

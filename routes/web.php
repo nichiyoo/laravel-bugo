@@ -1,20 +1,25 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ArticleController;
 use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn() => view('welcome'))->name('home');
 Route::get('/bugo', fn() => view('bugo'))->name('bugo');
 Route::get('/about', fn() => view('about'))->name('about');
+Route::get('/profile', fn() => view('profile'))->middleware(['auth'])->name('profile');
 
 Route::get('/start', function () {
   $articles = Article::all();
-
-  return view('start', [
-    'articles' => $articles
-  ]);
+  return view('start', ['articles' => $articles]);
 })->name('start');
+
+Route::get('/dashboard', function () {
+  $articles = Article::all();
+  return view('dashboard', ['articles' => $articles]);
+})
+  ->middleware(['auth', 'role:admin'])
+  ->name('dashboard');
 
 Route::get('/start/{slug}', function ($slug) {
   $article = Article::where('slug', $slug)->first();
@@ -30,14 +35,9 @@ Route::get('/start/{slug}', function ($slug) {
   ]);
 })->name('article');
 
-Route::get('/dashboard', function () {
-  return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-  Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-  Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::resource('articles', ArticleController::class)
+  ->middleware(['auth', 'role:admin'])
+  ->names('articles');
 
 require __DIR__ . '/auth.php';

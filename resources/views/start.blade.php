@@ -4,8 +4,8 @@
     <main class="container grid gap-16 max-w-7xl">
       @include('layouts.partials.navbar')
 
-      <div class="grid items-center gap-10 lg:grid-cols-3">
-        <div class="flex items-center justify-center">
+      <div class="grid items-center gap-10 py-20 lg:grid-cols-3">
+        <div class="items-center justify-center hidden lg:flex">
           <img src="{{ asset('question.png') }}" class="w-full max-w-96" alt="question">
         </div>
         <div class="flex flex-col gap-6 lg:col-span-2">
@@ -34,7 +34,7 @@
 
         <div class="flex flex-wrap justify-center">
           @foreach ($articles as $article)
-            <a href="{{ route('article', $article->slug) }}" class="p-6 basis-1/3">
+            <a href="{{ route('article', $article->slug) }}" class="p-6 basis-full lg:basis-1/3">
               <div class="flex items-center justify-center h-40 p-6 text-center bg-foreground box-shadow rounded-3xl">
                 <h3 class="text-lg font-semibold">{{ $article->title }}</h3>
               </div>
