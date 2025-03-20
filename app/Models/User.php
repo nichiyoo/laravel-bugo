@@ -45,4 +45,12 @@ class User extends Authenticatable
       'password' => 'hashed',
     ];
   }
+
+  /**
+   * Get the bugo histories of the user.
+   */
+  public function calculations()
+  {
+    return $this->hasMany(Calculation::class);
+  }
 }

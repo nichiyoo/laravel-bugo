@@ -32,14 +32,20 @@
       <div class="flex flex-col items-center gap-6 text-center">
         <h2 class="text-4xl font-bold text-shadow">What&apos;s Your Problem?</h2>
 
-        <div class="flex flex-wrap justify-center">
+        <div class="flex flex-wrap justify-center w-full">
           @foreach ($articles as $article)
-            <a href="{{ route('article', $article->slug) }}" class="p-6 basis-full lg:basis-1/3">
+            <a href="{{ route('get-started.show', $article->slug) }}" class="p-6 basis-full lg:basis-1/3">
               <div class="flex items-center justify-center h-40 p-6 text-center bg-foreground box-shadow rounded-3xl">
                 <h3 class="text-lg font-semibold">{{ $article->title }}</h3>
               </div>
             </a>
           @endforeach
+        </div>
+
+        <div class="w-full">
+          <div class="[&_p]:text-white">
+            {{ $articles->links() }}
+          </div>
         </div>
 
         <h2 class="text-4xl font-bold text-shadow">We&apos;re The Right Buddy to Help You Out!</h2>

@@ -1,43 +1,30 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
-use App\Models\Article;
+use App\Http\Controllers\BugoController;
+use App\Http\Controllers\GetStartedController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn() => view('welcome'))->name('home');
 Route::get('/bugo', fn() => view('bugo'))->name('bugo');
 Route::get('/about', fn() => view('about'))->name('about');
 Route::get('/profile', fn() => view('profile'))->middleware(['auth'])->name('profile');
-
-Route::get('/start', function () {
-  $articles = Article::all();
-  return view('start', ['articles' => $articles]);
-})->name('start');
-
-Route::get('/dashboard', function () {
-  $articles = Article::all();
-  return view('dashboard', ['articles' => $articles]);
-})
-  ->middleware(['auth', 'role:admin'])
-  ->name('dashboard');
-
-Route::get('/start/{slug}', function ($slug) {
-  $article = Article::where('slug', $slug)->first();
-  if (!$article) abort(404);
-
-  $previous = Article::where('id', '<', $article->id)->orderBy('id', 'desc')->first();
-  $next = Article::where('id', '>', $article->id)->orderBy('id', 'asc')->first();
-
-  return view('article', [
-    'article' => $article,
-    'previous' => $previous,
-    'next' => $next
-  ]);
-})->name('article');
-
+Route::get('/dashboard', fn() => redirect()->route('articles.index'))->name('dashboard');
 
 Route::resource('articles', ArticleController::class)
   ->middleware(['auth', 'role:admin'])
   ->names('articles');
+
+Route::get('/get-started', [GetStartedController::class, 'index'])->name('get-started.index');
+Route::get('/get-started/{slug}', [GetStartedController::class, 'show'])->name('get-started.show');
+
+Route::get('/bugo', [BugoController::class, 'index'])->name('bugo.index');
+Route::get('/bugo/form', [BugoController::class, 'start'])->name('bugo.start');
+Route::post('/bugo/form', [BugoController::class, 'next'])->name('bugo.next');
+Route::get('/bugo/previous', [BugoController::class, 'previous'])->name('bugo.previous');
+Route::get('/bugo/finish', [BugoController::class, 'finish'])->name('bugo.finish');
+Route::get('/bugo/reset', [BugoController::class, 'reset'])->name('bugo.reset');
+Route::post('/bugo/history', [BugoController::class, 'save'])->name('bugo.save')->middleware('auth');
+Route::get('/bugo/history', [BugoController::class, 'history'])->name('bugo.history')->middleware('auth');
 
 require __DIR__ . '/auth.php';

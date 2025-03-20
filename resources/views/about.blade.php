@@ -19,7 +19,7 @@
 
     <main class="container grid gap-10 max-w-7xl">
       <div>
-        <div class="flex flex-col items-center gap-6 text-center lg:col-span-2">
+        <div class="flex flex-col items-center gap-6 text-center">
           <h1 class="text-6xl font-bold text-shadow">Buddy to Your Goals!</h1>
           <span class="text-xl">Your Partner in Achieving Financial Goals</span>
           <p>

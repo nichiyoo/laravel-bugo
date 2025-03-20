@@ -24,7 +24,7 @@
           </div>
 
           <div class="grid items-end w-full grid-cols-3 gap-6">
-            <iframe class="w-full lg:col-span-2 aspect-video" src="{{ $article->video_url }}"
+            <iframe class="w-full bg-black lg:col-span-2 aspect-video" src="{{ $article->video_url }}"
               title="{{ $article->title }}" frameborder="0" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
             <div class="flex flex-col items-end">

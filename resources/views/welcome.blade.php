@@ -23,7 +23,7 @@
               dreams—one step at a time.
             </p>
             <div>
-              <a href="{{ route('start') }}">
+              <a href="{{ route('get-started.index') }}">
                 <x-button>
                   <span>Get Started</span>
                   <i data-lucide="arrow-right" class="size-5"></i>

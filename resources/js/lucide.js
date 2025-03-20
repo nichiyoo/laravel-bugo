@@ -1,5 +1,10 @@
-import { createIcons, icons } from 'lucide';
+import { ArrowLeft, ArrowRight, createIcons, Search, UserCircle } from 'lucide';
 
 createIcons({
-  icons
+  icons: {
+    ArrowRight,
+    Search,
+    ArrowLeft,
+    UserCircle,
+  }
 });

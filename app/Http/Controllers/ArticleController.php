@@ -14,8 +14,9 @@ class ArticleController extends Controller
    */
   public function index()
   {
-    $articles = Article::all();
-    return view('dashboard', [
+    $articles = Article::paginate(5);
+
+    return view('articles.index', [
       'articles' => $articles
     ]);
   }
@@ -35,7 +36,7 @@ class ArticleController extends Controller
   {
     $article = Article::create($request->validated());
     $request->session()->flash('success', 'Article created successfully.');
-    return redirect()->route('dashboard', $article);
+    return redirect()->route('articles.index', $article);
   }
 
   /**
@@ -65,7 +66,7 @@ class ArticleController extends Controller
   {
     $article->update($request->validated());
     $request->session()->flash('success', 'Article updated successfully.');
-    return redirect()->route('dashboard', $article);
+    return redirect()->route('articles.index', $article);
   }
 
   /**
@@ -75,6 +76,6 @@ class ArticleController extends Controller
   {
     $article->delete();
     $request->session()->flash('success', 'Article deleted successfully.');
-    return redirect()->route('dashboard');
+    return redirect()->route('articles.index');
   }
 }

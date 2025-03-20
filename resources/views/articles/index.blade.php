@@ -39,25 +39,25 @@
           <tbody>
             @foreach ($articles as $article)
               <tr class="text-sm border-b border-gray-200 hover:bg-gray-100">
-                <td class="px-8 py-4 truncate min-w-52">{{ $article->title }}</td>
+                <td class="px-8 py-4 truncate max-w-80">{{ $article->title }}</td>
                 <td class="px-8 py-4">
                   <p class="line-clamp-2">
                     {{ $article->description }}
                   </p>
                 </td>
-                <td class="px-8 py-4">
+                <td class="w-40 px-8 py-4">
                   <a target="_blank" href="{{ $article->source_url }}"
                     class="text-blue-500 hover:underline whitespace-nowrap">
                     {{ __('Read More') }}
                   </a>
                 </td>
-                <td class="px-8 py-4">
+                <td class="w-40 px-8 py-4">
                   <a target="_blank" href="{{ $article->video_url }}"
                     class="text-blue-500 hover:underline whitespace-nowrap">
                     {{ __('View Source') }}
                   </a>
                 </td>
-                <td class="px-8 py-4">
+                <td class="w-40 px-8 py-4">
                   <div class="flex items-center gap-4">
                     <a href="{{ route('articles.edit', $article->id) }}" class="text-blue-500 hover:underline">
                       {{ __('Edit') }}
@@ -80,6 +80,10 @@
             @endforeach
           </tbody>
         </table>
+      </div>
+
+      <div class="[&_p]:text-white">
+        {{ $articles->links() }}
       </div>
     </main>
 

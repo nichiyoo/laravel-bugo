@@ -1,6 +1,6 @@
 <nav class="flex items-center justify-between w-full py-6">
   <a href="{{ route('home') }}" class="flex-none">
-    <img src="{{ asset('logo.png') }}" class="w-auto h-12" alt="{{ config('app.name') }}">
+    <img src="{{ asset('logo-dark.png') }}" class="w-auto h-12" alt="{{ config('app.name') }}">
   </a>
 
   <ul class="flex items-center gap-6 font-medium uppercase underline-offset-4">

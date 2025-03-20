@@ -16,6 +16,12 @@
         </x-button>
       </form>
 
+      <a href={{ route('bugo.history') }}>
+        <x-button class="input-shadow">
+          Saved Calculation
+        </x-button>
+      </a>
+
       @role('admin')
         <a href={{ route('dashboard') }}>
           <x-button class="input-shadow">
