@@ -26,6 +26,7 @@ class UpdateArticleRequest extends FormRequest
       'description' => ['required', 'string'],
       'video_url' => ['required', 'url'],
       'source_url' => ['required', 'url'],
+      'source_title' => ['required', 'string'],
     ];
   }
 }

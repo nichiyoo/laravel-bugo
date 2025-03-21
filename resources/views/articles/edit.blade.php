@@ -38,6 +38,12 @@
         </div>
 
         <div>
+          <x-text-input id="source_title" class="block w-full" placeholder="Source Title" type="text"
+            name="source_title" :value="old('source_title') ?? $article->source_title" required autocomplete="source_title" />
+          <x-input-error :messages="$errors->get('source_title')" class="mt-2" />
+        </div>
+
+        <div>
           <x-text-input id="video_url" class="block w-full" placeholder="Video URL" type="text" name="video_url"
             :value="old('video_url') ?? $article->video_url" required autocomplete="video_url" />
           <x-input-error :messages="$errors->get('video_url')" class="mt-2" />

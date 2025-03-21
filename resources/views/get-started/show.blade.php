@@ -32,7 +32,7 @@
                 <i data-lucide="search" class="size-6"></i>
                 <h2 class="text-2xl font-bold">Read this.</h2>
               </a>
-              <span>How to get out of debt.</span>
+              <span>{{ $article->source_title }}</span>
             </div>
           </div>
         </div>

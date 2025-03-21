@@ -21,6 +21,7 @@ class Article extends Model
     'description',
     'video_url',
     'source_url',
+    'source_title'
   ];
 
   /**

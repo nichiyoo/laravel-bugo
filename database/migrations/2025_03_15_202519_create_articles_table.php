@@ -19,6 +19,7 @@ return new class extends Migration
       $table->text('description');
       $table->string('video_url');
       $table->string('source_url');
+      $table->string('source_title');
     });
   }
 
