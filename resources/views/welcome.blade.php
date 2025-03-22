@@ -26,12 +26,6 @@
             dreams—one step at a time.
           </p>
 
-          <div class="text-zinc-900">
-            <input value="14031999" type="text" class="currency" />
-            <input value="14031999" type="text" x-mask="99/99/9999" />
-            <x-input-error :messages="$errors->get('target_amount')" class="mt-2" />
-          </div>
-
           <div>
             <a href="{{ route('get-started.index') }}">
               <x-button>
