@@ -1,42 +1,51 @@
 <x-landing-layout>
 
-  <body
-    class="font-sans text-white bg-gradient-to-t from-background from-80% to-darker relative min-h-screen pb-60 overflow-x-hidden">
-    <div class="container grid gap-10 overflow-x-hidden max-w-7xl">
-      @include('layouts.partials.navbar')
+  <body class="min-h-screen overflow-x-hidden font-sans text-white bg-gradient-to-t from-background from-60% to-darker">
+    <div class="absolute top-0 z-10 w-full">
+      <div class="container max-w-7xl">
+        @include('layouts.partials.navbar')
+      </div>
+    </div>
 
-      <main class="py-20">
-        <div class="grid items-center gap-10 lg:grid-cols-3">
-          <div class="flex flex-col gap-6 lg:col-span-2">
-            <h1 class="text-6xl font-bold text-shadow">Buddy to Your Goals!</h1>
-            <span class="text-xl">Your Partner in Achieving Financial Dreams</span>
-            <p>
-              Your future starts with the right financial steps. At BUGO, we believe that every goal—big or
-              small—deserves
-              a solid plan. We&apos;re more than just an app; we&apos;re your companion in building better financial
-              habits,
-              staying
-              on track, and turning aspirations into reality.
-              With BUGO by your side, planning, saving, and achieving become seamless. Let&apos;s take the journey
-              towards
-              your
-              dreams—one step at a time.
-            </p>
-            <div>
-              <a href="{{ route('get-started.index') }}">
-                <x-button>
-                  <span>Get Started</span>
-                  <i data-lucide="arrow-right" class="size-5"></i>
-                </x-button>
-              </a>
-            </div>
+
+    <main class="container relative grid items-center min-h-screen gap-10 max-w-7xl">
+      <div class="grid items-center gap-10 lg:grid-cols-3">
+        <div class="flex flex-col gap-6 lg:col-span-2">
+          <h1 class="text-6xl font-bold text-shadow">Buddy to Your Goals!</h1>
+          <span class="text-xl">Your Partner in Achieving Financial Dreams</span>
+          <p>
+            Your future starts with the right financial steps. At BUGO, we believe that every goal—big or
+            small—deserves
+            a solid plan. We&apos;re more than just an app; we&apos;re your companion in building better financial
+            habits,
+            staying
+            on track, and turning aspirations into reality.
+            With BUGO by your side, planning, saving, and achieving become seamless. Let&apos;s take the journey
+            towards
+            your
+            dreams—one step at a time.
+          </p>
+
+          <div class="text-zinc-900">
+            <input value="14031999" type="text" class="currency" />
+            <input value="14031999" type="text" x-mask="99/99/9999" />
+            <x-input-error :messages="$errors->get('target_amount')" class="mt-2" />
           </div>
-          <div class="items-center justify-center hidden lg:flex">
-            <img src="{{ asset('hero.png') }}" class="w-full max-w-96" alt="hero">
+
+          <div>
+            <a href="{{ route('get-started.index') }}">
+              <x-button>
+                <span>Get Started</span>
+                <i data-lucide="arrow-right" class="size-5"></i>
+              </x-button>
+            </a>
           </div>
         </div>
-      </main>
-    </div>
+        <div class="items-center justify-center hidden lg:flex">
+          <img src="{{ asset('hero.png') }}" class="w-full max-w-96" alt="hero">
+        </div>
+      </div>
+    </main>
 
     <div class="absolute bottom-0 w-full min-w-ornament">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

@@ -33,7 +33,7 @@
           </div>
 
           <div>
-            <x-text-input id="target_amount" class="block w-full" type="number" name="target_amount"
+            <x-text-input id="target_amount" class="block w-full currency" type="text" name="target_amount"
               placeholder="target amount" :value="old('target_amount', $state['target_amount'])" required />
             <x-input-error :messages="$errors->get('target_amount')" class="mt-2" />
           </div>

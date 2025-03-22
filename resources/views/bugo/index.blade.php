@@ -1,7 +1,6 @@
 <x-landing-layout>
 
-  <body class="min-h-screen overflow-x-hidden font-sans text-white bg-pattern bg-gradient-to-t pb-60 pt-72 lg:pt-96">
-
+  <body class="h-screen overflow-x-hidden font-sans text-white bg-pattern">
     <svg class="absolute bottom-0 right-0" width="585" height="744" viewBox="0 0 585 744" fill="none"
       xmlns="http://www.w3.org/2000/svg">
       <path
@@ -9,13 +8,13 @@
         fill="#BCFDF7" />
     </svg>
 
-    <div class="absolute top-0 w-full">
+    <div class="absolute top-0 z-10 w-full">
       <div class="container max-w-7xl">
         @include('layouts.partials.navbar')
       </div>
     </div>
 
-    <main class="container grid gap-10 max-w-7xl">
+    <main class="container relative grid items-center h-screen gap-10 max-w-7xl">
       <div>
         <div class="flex flex-col items-center gap-6 text-center">
           <h1 class="text-6xl font-bold text-shadow">Welcome To My BUGO!</h1>

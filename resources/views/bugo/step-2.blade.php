@@ -27,31 +27,31 @@
           <input type="hidden" name="step" value="2">
 
           <div>
-            <x-text-input id="monthly_income" class="block w-full" type="number" name="monthly_income"
+            <x-text-input id="monthly_income" class="block w-full currency" type="text" name="monthly_income"
               placeholder="Monthly Income" :value="old('monthly_income', $state['monthly_income'])" required />
             <x-input-error :messages="$errors->get('monthly_income')" class="mt-2" />
           </div>
 
           <div>
-            <x-text-input id="personal_monthly_expenses" class="block w-full" type="number"
+            <x-text-input id="personal_monthly_expenses" class="block w-full currency" type="text"
               name="personal_monthly_expenses" placeholder="Personal Monthly Expenses" :value="old('personal_monthly_expenses', $state['personal_monthly_expenses'])" required />
             <x-input-error :messages="$errors->get('personal_monthly_expenses')" class="mt-2" />
           </div>
 
           <div>
-            <x-text-input id="dependents_cost" class="block w-full" type="number" name="dependents_cost"
+            <x-text-input id="dependents_cost" class="block w-full currency" type="text" name="dependents_cost"
               placeholder="Dependents Cost" :value="old('dependents_cost', $state['dependents_cost'])" required />
             <x-input-error :messages="$errors->get('dependents_cost')" class="mt-2" />
           </div>
 
           <div>
-            <x-text-input id="monthly_emergency_fund_goal" class="block w-full" type="number"
+            <x-text-input id="monthly_emergency_fund_goal" class="block w-full currency" type="text"
               name="monthly_emergency_fund_goal" placeholder="Monthly Emergency Fund Goal" :value="old('monthly_emergency_fund_goal', $state['monthly_emergency_fund_goal'])" required />
             <x-input-error :messages="$errors->get('monthly_emergency_fund_goal')" class="mt-2" />
           </div>
 
           <div class="mt-4">
-            <x-text-input id="monthly_debt" class="block w-full" type="number" name="monthly_debt"
+            <x-text-input id="monthly_debt" class="block w-full currency" type="text" name="monthly_debt"
               placeholder="Monthly Debt" :value="old('monthly_debt', $state['monthly_debt'])" required />
             <x-input-error :messages="$errors->get('monthly_debt')" class="mt-2" />
           </div>

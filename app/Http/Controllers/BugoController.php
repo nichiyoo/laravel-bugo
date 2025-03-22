@@ -60,6 +60,16 @@ class BugoController extends Controller
 
     switch ($step) {
       case '1':
+        $currencies = [
+          'target_amount'
+        ];
+
+        foreach ($currencies as $currency) {
+          $request->merge([
+            $currency => preg_replace('/[^0-9]/', '', $request->input($currency)),
+          ]);
+        }
+
         $request->validate([
           'target_name' => ['required', 'string', 'max:255'],
           'target_amount' => ['required', 'numeric', 'min:1'],
@@ -70,12 +80,26 @@ class BugoController extends Controller
         break;
 
       case '2':
+        $currencies = [
+          'monthly_income',
+          'personal_monthly_expenses',
+          'dependents_cost',
+          'monthly_emergency_fund_goal',
+          'monthly_debt',
+        ];
+
+        foreach ($currencies as $currency) {
+          $request->merge([
+            $currency => preg_replace('/[^0-9]/', '', $request->input($currency)),
+          ]);
+        }
+
         $request->validate([
           'monthly_income' => ['required', 'numeric', 'min:1'],
-          'personal_monthly_expenses' => ['required', 'numeric', 'min:1'],
-          'dependents_cost' => ['required', 'numeric', 'min:1'],
-          'monthly_emergency_fund_goal' => ['required', 'numeric', 'min:1'],
-          'monthly_debt' => ['required', 'numeric', 'min:1'],
+          'personal_monthly_expenses' => ['required', 'numeric'],
+          'dependents_cost' => ['required', 'numeric'],
+          'monthly_emergency_fund_goal' => ['required', 'numeric'],
+          'monthly_debt' => ['required', 'numeric'],
         ]);
 
         $monthly_income = $request->input('monthly_income');

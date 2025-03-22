@@ -18,7 +18,7 @@
     </li>
     <li>
       <a href="{{ route('bugo.index') }}"
-        class="hover:underline whitespace-nowrap @if (request()->routeIs('bugo')) underline @endif">
+        class="hover:underline whitespace-nowrap @if (request()->routeIs('bugo.*')) underline @endif">
         My Bugo
       </a>
     </li>

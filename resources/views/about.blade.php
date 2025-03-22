@@ -1,8 +1,6 @@
 <x-landing-layout>
 
-  <body
-    class="font-sans text-white bg-gradient-to-t from-background from-60% to-darker relative min-h-screen pb-60 pt-72 lg:pt-96 overflow-x-hidden">
-
+  <body class="h-screen overflow-x-hidden font-sans text-white bg-gradient-to-t from-background from-60% to-darker">
     <div class="absolute top-0 w-full min-w-ornament">
       <svg class="rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path fill="#e13d56" fill-opacity="1"
@@ -11,13 +9,13 @@
       </svg>
     </div>
 
-    <div class="absolute top-0 w-full">
+    <div class="absolute top-0 z-10 w-full">
       <div class="container max-w-7xl">
         @include('layouts.partials.navbar')
       </div>
     </div>
 
-    <main class="container grid gap-10 max-w-7xl">
+    <main class="container relative grid items-center h-screen gap-10 max-w-7xl">
       <div>
         <div class="flex flex-col items-center gap-6 text-center">
           <h1 class="text-6xl font-bold text-shadow">Buddy to Your Goals!</h1>

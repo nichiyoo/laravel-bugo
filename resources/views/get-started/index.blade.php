@@ -52,7 +52,6 @@
       </div>
     </main>
 
-
     <div class="absolute bottom-0 w-full h-28 bg-foreground"></div>
     <div class="absolute bottom-0 w-full py-10 text-center">
       <span class="font-bold text-zinc-900">

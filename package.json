@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "@splidejs/splide": "^4.1.4",
+        "imask": "^7.6.1",
         "lucide": "^0.482.0"
     }
 }
